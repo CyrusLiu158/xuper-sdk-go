@@ -159,10 +159,6 @@ func GetAccountFromFile(path, passwd string) (*Account, error) {
 // If you set contract account, this account represents the contract account.
 // In some scenarios, must set contract account, such as deploy contract.
 func (a *Account) SetContractAccount(contractAccount string) error {
-	if ok, _ := regexp.MatchString(`^XC\d{16}@*`, contractAccount); !ok {
-		return common.ErrInvalidContractAccount
-	}
-
 	a.contractAccount = contractAccount
 	return nil
 }
